@@ -44,8 +44,13 @@ void fl()
      bline(50,50, 0.1, 0, 'f', 's',50, "a5", 10); 
      do{Motor(-30, -30);}while(analogRead(27) > md_adc(27));
      Motor(20, 20); delay(10); 
-     Motor(0, 0); delay(10);  
-     bline(0, 0, 0, 10, 'n', 'r',40, "a5", 20);
+     Motor(0, 0); delay(10); 
+      
+     do{Motor(50, -50);}while(mcp_f(7) > md_mcp_f(7));
+     do{Motor(50, -50);}while(mcp_f(4) > md_mcp_f(4));
+     Motor(-50, 50); delay(20); 
+     Motor(0, 0); delay(10);
+     
      fline(50,50, 0.2, 0, 'c', 'r',50, "a4", 30);  //-------> จบตรงสี่แยกหน้าจุดเริ่มต้น
   }
 
@@ -83,8 +88,13 @@ void fl()
      bline(50,50, 0.1, 0, 'f', 's',50, "a5", 10); 
      do{Motor(-30, -30);}while(analogRead(26) > md_adc(26));
      Motor(20, 20); delay(10); 
-     Motor(0, 0); delay(10);  
-     bline(0, 0, 0, 10, 'n', 'l',40, "a2", 20);
+     Motor(0, 0); delay(10);
+       
+     do{Motor(-50, 50);}while(mcp_f(0) > md_mcp_f(0));
+     do{Motor(-50, 50);}while(mcp_f(3) > md_mcp_f(3));
+     Motor(50, -50); delay(20); 
+     Motor(0, 0); delay(10);
+      
      fline(50,50, 0.2, 0, 'c', 'l',50, "a3", 30);  //-------> จบตรงสี่แยกหน้าจุดเริ่มต้น
   }
 
