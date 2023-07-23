@@ -6,7 +6,7 @@
       delay(300);    
       servo(8,servo_up );  //ยก
       delay(300); 
-          ;
+
       if(analogRead(29) >= color_box)
         {
             can_color = 1;
