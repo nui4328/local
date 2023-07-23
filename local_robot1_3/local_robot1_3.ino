@@ -3,8 +3,8 @@
 
 unsigned long lasts_time_servo = millis();
 unsigned long lasts_time_ch = millis();
-int servo_down = 55;
-int servo_up = 143;
+int servo_down = 50;
+int servo_up = 145;
 
 int ground_color = 0; 
 int can_color = 0;  
@@ -15,8 +15,8 @@ int st_can2 = 0;
 int st_can3 = 0;
 int st_can4 = 0;
 
-int min_can_color = 500;
-int max_can_color = 2500;
+int min_can_color = 500;      //  กระป๋องดำ
+int max_can_color = 2500;   //  กระป๋องขาว
 void setup() 
   {    
       Serial.begin(9600);
@@ -30,7 +30,7 @@ void setup()
       to_turn_front_r(100, -15);     // ตั้งค่ามอเตอร์หมุนซ้ายขวา ตอนเลี้ยวขวาแบบ เซนเซอร์หน้า  เดินหน้า
       to_speed_turn_fl(100, 30, 35);  // ค่าพุ่งตัวออกหลังจากการเลี้ยว มีผลต่อตัวแปรสุดท้ายของคำสั่งเลี้ยว ถ้าเป็น 0
       to_speed_turn_fr(30, 100, 35);  // ค่าพุ่งตัวออกหลังจากการเลี้ยว มีผลต่อตัวแปรสุดท้ายของคำสั่งเลี้ยว ถ้าเป็น 0      
-      to_brake_fc(20, 60);            // ตั้งค่าในการหยุดมอเตอร์ก่อนหมุนซ้ายขวา to_brake_fc(...f..., ....c...); 
+      to_brake_fc(20, 70);            // ตั้งค่าในการหยุดมอเตอร์ก่อนหมุนซ้ายขวา to_brake_fc(...f..., ....c...); 
       to_delay_f(5);                 // ระยะทางในการข้ามเส้นเวลาหมุนตัวแบบ f
     
       kp_sl(0.15, 0.15);  // kp และ ki ในฟังก์ เดินตามเส้นแบบช้า
@@ -39,22 +39,27 @@ void setup()
 
       
       //setup_tcs();
-     
+      //down_servo();
+      
       //servo(8,servo_down );  //ลง 
-      servo(23,120);   
+      //servo(23,120);   
 
       sw();
+//-------------------------------------->>  เขียนโค๊ดที่นี่
+     start_game();
+     start_run();
 
-      start_game();
-      start_run();
-
+    
+//-------------------------------------->>  เขียนโค๊ดที่นี่
 
   }
 
 void loop() 
   {  
-      
-       Serial.print(analogRead(29));  Serial.print("   ");Serial.println(analogRead(28));
+    
+       
+       
+      Serial.print(analogRead(28));  Serial.print("   ");Serial.println(analogRead(29));
       
 
   }
